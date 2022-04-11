@@ -6,7 +6,6 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
     <title><%: Page.Title %>- Welcome to InfoFandoms</title>
 
     <asp:PlaceHolder runat="server">
@@ -22,6 +21,7 @@
     <form runat="server">
 
         <div class="container body-content">
+            <!-- Header content on each page -->
             <asp:ContentPlaceHolder ID="lblWelcome" runat="server">
                 <h1>Welcome to InfoFandoms!</h1>
                 <asp:Panel ID="pnlAboutUs" runat="server">
@@ -34,11 +34,17 @@
                 </asp:Panel>
 
             </asp:ContentPlaceHolder>
-            <asp:Panel ID="pnlGetStarted" runat="server">
+
+            <!-- Main content on each page -->
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+
+            <!-- Footer content on each page -->
+            <!-- <asp:Panel ID="pnlGetStarted" runat="server">
                  <h2>Want to add your own? Click the "Get Started" button below!</h2>
                      <asp:Button ID="btnStart" runat="server" CssClass="btn btn-primary" Text="Get Started" />
                  
-            </asp:Panel>
+            </asp:Panel> -->
             <hr />
             <footer>
                 <p>&copy; <%: DateTime.Now.Year %> - InfoFandoms</p>
