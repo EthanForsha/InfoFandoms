@@ -6,6 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
     <title><%: Page.Title %>- Welcome to InfoFandoms</title>
 
     <asp:PlaceHolder runat="server">
@@ -19,7 +20,6 @@
 <body>
     
     <form runat="server">
-
 
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="lblWelcome" runat="server">
@@ -41,7 +41,7 @@
             </asp:Panel>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %>- InfoFandoms</p>
+                <p>&copy; <%: DateTime.Now.Year %> - InfoFandoms</p>
             </footer>
         </div>
 
