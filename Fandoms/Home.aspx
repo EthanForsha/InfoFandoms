@@ -23,9 +23,9 @@
     </asp:Panel>
 
     <asp:Panel ID="pnlButtons" runat="server" HorizontalAlign="Center">
-        <asp:Button ID="btnAddFandom" runat="server" Text="Add/Edit Fandom" CssClass="btn btn-primary" OnClick="Button1_Click" />
+        <asp:Button ID="btnAddFandom" runat="server" Text="Add/Edit Fandom" CssClass="btn btn-primary" OnClick="Button1_Click" ToolTip="Clicking this allows you to view, add, and edit the Fandoms databse!"/>
         &nbsp;
-        <asp:Button ID="btnAddMovie" runat="server" Text="Add/Edit Movie" CssClass="btn btn-primary" OnClick="btnAddMovie_Click" />
+        <asp:Button ID="btnAddMovie" runat="server" Text="Add/Edit Movie" CssClass="btn btn-primary" OnClick="btnAddMovie_Click" ToolTip="Click this allows you to view, add, and edit movies of a specified fandom!"/>
     </asp:Panel>
 
 
