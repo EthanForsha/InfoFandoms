@@ -13,5 +13,15 @@ namespace Fandoms
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FandomPage.aspx");
+        }
+
+        protected void btnAddMovie_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MoviesPage.aspx");
+        }
     }
 }
