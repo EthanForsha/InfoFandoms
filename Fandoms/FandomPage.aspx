@@ -5,9 +5,6 @@
 	<h2>Fandoms</h2>
     <asp:Panel ID="pnlAddFandom" runat="server" ClientIDMode="Static">   
 		<div class="row">
-			<div> class="col-sm-2"
-				<Label for="lblFandomName">Fandom Name: </Label>
-			</div>
 			<div class="col-sm-10">
 				<asp:TextBox ID="txtFandomName" runat="server"></asp:TextBox> 
 				<asp:RequiredFieldValidator ID="rfvFandomName" runat="server" ControlToValidate="txtFandomName" ValidationGroup="AddFandom" ErrorMessage="Required" ForeColor="#FF3300"></asp:RequiredFieldValidator>
