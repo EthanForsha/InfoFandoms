@@ -15,15 +15,6 @@ namespace Fandoms
     {
 
         /// <summary>
-        /// lblWelcome control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder lblWelcome;
-
-        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>
@@ -31,23 +22,5 @@ namespace Fandoms
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
-
-        /// <summary>
-        /// pnlGetStarted control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlGetStarted;
-
-        /// <summary>
-        /// btnStart control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnStart;
     }
 }
