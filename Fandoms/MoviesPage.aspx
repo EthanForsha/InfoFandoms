@@ -10,12 +10,20 @@
                 <asp:Label ID="lblMoviesPage" runat="server" Text="Here you can view all the movies in a chosen Fandom, and you can even add your own movies to the Fandom if they are not already there!"></asp:Label>
                 <br />
                 <br />
-                <asp:Label ID="lblSelectFandom" runat="server" Text="Please Select a Fandom: " Visible="False"></asp:Label>
-                <asp:DropDownList ID="drpFandoms" runat="server" Visible="False" Width="604px">
+                <asp:Label ID="lblSelectFandom" runat="server" Text="Please Select a Fandom: "></asp:Label>
+                <asp:DropDownList ID="ddlFandoms" runat="server" Width="604px" AppendDataBoundItems="True">
                 </asp:DropDownList>
                 <br />
                 <br />
+                <asp:Label ID="lblMovieName" runat="server" Text="Please enter the name of the Movie: "></asp:Label>
+                <asp:TextBox ID="txtMovieName" runat="server" Width="525px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="rfvMovieName" runat="server" ControlToValidate="txtMovieName" ErrorMessage="Required" ForeColor="#FF3300" ValidationGroup="AddMovie"></asp:RequiredFieldValidator>
+                <asp:Label ID="lblMovieNameFeedback" runat="server" Visible="False"></asp:Label>
+                <br />
+                <br />
                 <asp:Button ID="btnAddMovie" runat="server" CssClass="btn btn-primary" Text="Add Movie" />
+                <asp:Button ID="btnSave" runat="server" CssClass="btn btn-primary" Text="Save" Visible="False" />
+                <asp:Button ID="btnCancel" runat="server" CssClass="btn btn-danger" Text="Cancel" Visible="False" />
                 <br />
                 <br />
             </div>
@@ -35,9 +43,9 @@
                     <asp:BoundField HeaderText="Price" />
                     <asp:TemplateField HeaderText="Actions">
                         <ItemTemplate>
+                            <asp:Button ID="btnView" runat="server" CssClass="btn btn-success" Text="View" />
                             <asp:Button ID="btnEditMovie" runat="server" CssClass="btn btn-primary" Text="Edit" />
                             <asp:Button ID="btnDelete" runat="server" CssClass="btn btn-danger" Text="Delete" />
-                            <asp:Button ID="btnView" runat="server" Text="View" CssClass="btn btn-success" />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
