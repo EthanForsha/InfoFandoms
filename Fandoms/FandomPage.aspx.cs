@@ -4,8 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data.SqlClient;  
-using System.Web.Configuration; 
+using System.Data.SqlClient;
+using System.Web.Configuration;
 using System.Data;
 
 namespace Fandoms
@@ -14,16 +14,15 @@ namespace Fandoms
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			if (!Page.IsPostBack) 
+			if (!Page.IsPostBack)
 			{
 				BindFandomList();
 			}
 		}
 
-
 		protected void BindFandomList()
 		{
-			using (SqlConnection conn = new SqlConnection()) 
+			using (SqlConnection conn = new SqlConnection())
 			{
 				conn.ConnectionString = WebConfigurationManager.ConnectionStrings["FandomsConnectionString"].ConnectionString;
 
@@ -40,19 +39,17 @@ namespace Fandoms
 				sda.Fill(dt);
 
 				gvFandomList.DataSource = dt;
-				gvFandomList.DataBind(); 
+				gvFandomList.DataBind();
 			}
 		}
 
 		protected void gvFandomList_RowDataBound(object sender, GridViewRowEventArgs e)
 		{
-			if (e.Row.RowType == DataControlRowType.DataRow) 
+			if (e.Row.RowType == DataControlRowType.DataRow)
 			{
-				// find the Edit button
 				Button editButton = e.Row.FindControl("btnEdit") as Button;
 				Button deleteButton = e.Row.FindControl("btnDelete") as Button;
 
-				// find the categoryId of the row to use buttons
 				editButton.CommandArgument = e.Row.Cells[0].Text;
 				deleteButton.CommandArgument = e.Row.Cells[0].Text;
 			}
@@ -62,8 +59,9 @@ namespace Fandoms
 		{
 			if (e.CommandName == "EditFandom")
 			{
-				int fandomId = int.Parse(e.CommandArgument.ToString()); 
+				int fandomId = int.Parse(e.CommandArgument.ToString());
 				lblFandomId.Text = e.CommandArgument.ToString();
+
 				EditFandomById(fandomId);
 			}
 			else if (e.CommandName == "DeleteFandom")
@@ -86,9 +84,10 @@ namespace Fandoms
 				conn.Open();
 
 				SqlDataReader sdr = cmd.ExecuteReader();
-				if (sdr.Read()) 
+				if (sdr.Read())
 				{
-					txtFandomName.Text = sdr["FandomName"].ToString(); 
+					txtFandomName.Text = sdr["FandomName"].ToString();
+					txtFandomInfo.Text = sdr["FandomInfo"].ToString();
 					btnAddFandom.Visible = false;
 					btnSaveFandom.Visible = true;
 					btnCancel.Visible = true;
@@ -120,8 +119,7 @@ namespace Fandoms
 				conn.ConnectionString = WebConfigurationManager.ConnectionStrings["FandomsConnectionString"].ConnectionString;
 
 				SqlCommand cmd = new SqlCommand();
-				// change SQL statements later
-				cmd.CommandText = "UPDATE Fandoms SET FandomName = '" + txtFandomName.Text + "'WHERE FandomId = " + fandomId;
+				cmd.CommandText = "UPDATE Fandoms SET FandomName = '" + txtFandomName.Text + "', FandomInfo= '" + txtFandomInfo.Text + "'WHERE FandomId = " + fandomId;
 				cmd.Connection = conn;
 				conn.Open();
 
@@ -133,6 +131,7 @@ namespace Fandoms
 				btnSaveFandom.Visible = false;
 				btnCancel.Visible = false;
 				txtFandomName.Visible = true;
+				txtFandomInfo.Visible = true;
 			}
 		}
 
@@ -140,27 +139,36 @@ namespace Fandoms
 		{
 			if (Page.IsValid)
 			{
-				// 1. Create a connection object to the database
-				SqlConnection conn = new SqlConnection();
-				conn.ConnectionString = WebConfigurationManager.ConnectionStrings["FandomsConnectionString"].ConnectionString;
+				string imagePath = "";
+				if (fuFandomImage.HasFile)
+				{
+					imagePath = fuFandomImage.FileName;
+					fuFandomImage.SaveAs(Server.MapPath(Request.ApplicationPath) + "Content/Fandoms/Images/" + imagePath);
 
-				// 2. Create a command object to insert data
-				SqlCommand cmd = new SqlCommand();
-				cmd.Connection = conn;
+					using (SqlConnection conn = new SqlConnection())
+					{
+						conn.ConnectionString = WebConfigurationManager.ConnectionStrings["FandomsConnectionString"].ConnectionString;
 
-				// TODO
-				// this is a bad way to create a SQL statement
-				// SQL inject vulnerability
-				cmd.CommandText = "INSERT INTO Fandoms(FandomName) VALUES ('" + txtFandomName.Text + "')";
+						SqlCommand cmd = new SqlCommand();
+						cmd.Connection = conn;
 
-				// 3. Run the command 
-				conn.Open();
-				cmd.ExecuteNonQuery();
-				conn.Close();
+						cmd.CommandText = "INSERT INTO Fandoms(FandomName, FandomInfo, FandomImage) VALUES ('" + txtFandomName.Text.Trim() + "', '" + txtFandomInfo.Text.Trim() + "', '" + imagePath + "')";
 
-				lblFeedback.Visible = true;
-				lblFeedback.Text = "The fandom <strong>" + txtFandomName.Text + "</strong> was added successfully";
-				BindFandomList();
+						conn.Open();
+						cmd.ExecuteNonQuery();
+
+						lblFeedbackFandomName.Visible = true;
+						lblFeedbackFandomName.Text = "The fandom <strong>" + txtFandomName.Text + "</strong> was added successfully";
+
+						lblFeedbackFandomInfo.Visible = true;
+						lblFeedbackFandomInfo.Text = "The fandom information: " + txtFandomInfo.Text + " was added successfully";
+						BindFandomList();
+					}
+				}
+				else
+				{
+					// kick out
+				}
 			}
 		}
 
@@ -177,6 +185,8 @@ namespace Fandoms
 			btnAddFandom.Visible = true;
 			pnlFandomList.Visible = true;
 			txtFandomName.Text = "";
+			txtFandomInfo.Text = "";
+
 		}
 	}
 }
