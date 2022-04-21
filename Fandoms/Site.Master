@@ -46,7 +46,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/InfoFandoms">InfoFandoms</a>
+                    <a class="navbar-brand" runat="server">InfoFandoms</a>
+                    <style>
+                        .navbar-brand{
+                            font-size: 40px;
+                            font-family: 'Baskerville Old Face';
+                            font-weight: bold;
+                        }
+                    </style>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
