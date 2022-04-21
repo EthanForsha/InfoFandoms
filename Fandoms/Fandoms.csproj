@@ -106,13 +106,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="App_Data\Fandom.mdf" />
     <Content Include="App_Data\Fandoms.mdf" />
     <Content Include="App_Data\Fandoms_log.ldf">
       <DependentUpon>Fandoms.mdf</DependentUpon>
-    </Content>
-    <Content Include="App_Data\Fandom_log.ldf">
-      <DependentUpon>Fandom.mdf</DependentUpon>
     </Content>
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />

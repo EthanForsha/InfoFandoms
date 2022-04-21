@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FandomPage.aspx.cs" Inherits="Fandoms.FandomPage" MasterPageFile="~/Site.Master" %>
   <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 	  <!DOCTYPE html>
-		 <title>Fandoms</title>
 	<h2>Fandoms</h2>
     <asp:Panel ID="pnlAddFandom" runat="server" ClientIDMode="Static">   
 		<div class="form-group">
@@ -17,6 +16,7 @@
 
 				<label for="fuFandomImage">Image: </label>
 				<asp:FileUpload ID="fuFandomImage" runat="server" ClientIDMode="Static" CssClass="form-control-file" /> 
+				<asp:Label ID="lblImage" runat="server" Visible="false" CssClass="form-control"></asp:Label>
 		</div>
 		<div class="form-group">
 				<asp:Button CssClass="btn btn-primary" ID="btnAddFandom" runat="server" Text="Add" ValidationGroup="AddFandom" OnClick="btnAddFandom_Click"/>
