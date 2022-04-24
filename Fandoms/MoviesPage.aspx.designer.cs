@@ -51,6 +51,15 @@ namespace Fandoms
         protected global::System.Web.UI.WebControls.DropDownList ddlFandoms;
 
         /// <summary>
+        /// lblFandomNameFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFandomNameFeedback;
+
+        /// <summary>
         /// lblMovieName control.
         /// </summary>
         /// <remarks>
@@ -67,15 +76,6 @@ namespace Fandoms
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMovieName;
-
-        /// <summary>
-        /// rfvMovieName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvMovieName;
 
         /// <summary>
         /// lblMovieNameFeedback control.
