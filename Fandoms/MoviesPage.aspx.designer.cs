@@ -15,15 +15,6 @@ namespace Fandoms
     {
 
         /// <summary>
-        /// pnlAddMovie control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlAddMovie;
-
-        /// <summary>
         /// lblMoviesPage control.
         /// </summary>
         /// <remarks>
@@ -31,6 +22,51 @@ namespace Fandoms
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMoviesPage;
+
+        /// <summary>
+        /// pnlViewMovies control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlViewMovies;
+
+        /// <summary>
+        /// lblSelectFandomView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSelectFandomView;
+
+        /// <summary>
+        /// ddlFandomsView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlFandomsView;
+
+        /// <summary>
+        /// btnAddNewMovie control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddNewMovie;
+
+        /// <summary>
+        /// pnlAddMovie control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlAddMovie;
 
         /// <summary>
         /// lblSelectFandom control.
@@ -87,6 +123,15 @@ namespace Fandoms
         protected global::System.Web.UI.WebControls.Label lblMovieNameFeedback;
 
         /// <summary>
+        /// lblMovieNameFeedbackSuccess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMovieNameFeedbackSuccess;
+
+        /// <summary>
         /// btnAddMovie control.
         /// </summary>
         /// <remarks>
@@ -94,6 +139,15 @@ namespace Fandoms
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAddMovie;
+
+        /// <summary>
+        /// btnCancelAddMovie control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancelAddMovie;
 
         /// <summary>
         /// btnSave control.

@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
-using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Web.Configuration;
+using System.Data;
 
 namespace Fandoms
 {
@@ -71,6 +71,16 @@ namespace Fandoms
 				ListItem li = new ListItem("Select a Fandom", "-1");
 				ddlFandoms.Items.Insert(0, li);
 				ddlFandoms.SelectedIndex = 0;
+
+				ddlFandomsView.DataSource = dt;
+				ddlFandomsView.DataTextField = "FandomName";
+				ddlFandomsView.DataValueField = "FandomId";
+				ddlFandomsView.DataBind();
+
+				ListItem li2 = new ListItem("Select a Fandom", "-1");
+				ddlFandomsView.Items.Insert(0, li2);
+				ddlFandomsView.SelectedIndex = 0;
+				conn.Close();
 			}	
 		}
 
@@ -78,9 +88,11 @@ namespace Fandoms
 		{
 			if (e.Row.RowType == DataControlRowType.DataRow)
 			{
-				Button editButton = e.Row.FindControl("btnEdit") as Button;
-				Button deleteButton = e.Row.FindControl("btnDelete") as Button;
+				Button viewButton = e.Row.FindControl("btnViewMovie") as Button;
+				Button editButton = e.Row.FindControl("btnEditMovie") as Button;
+				Button deleteButton = e.Row.FindControl("btnDeleteMovie") as Button;
 
+				viewButton.CommandArgument = e.Row.Cells[0].Text;
 				editButton.CommandArgument = e.Row.Cells[0].Text;
 				deleteButton.CommandArgument = e.Row.Cells[0].Text;
 			}
@@ -88,21 +100,22 @@ namespace Fandoms
 
 		protected void gvMoviesList_RowCommand(object sender, GridViewCommandEventArgs e)
 		{
+			int movieId = 0;
 			if (e.CommandName == "ViewMovie")
             {
-				int movieId = int.Parse(e.CommandArgument.ToString());
+				movieId = int.Parse(e.CommandArgument.ToString());
 
 				// ViewMovieById(movieId);
             }
 			else if (e.CommandName == "EditMovie")
 			{
-				int movieId = int.Parse(e.CommandArgument.ToString());
+				movieId = int.Parse(e.CommandArgument.ToString());
 
 				EditMovieById(movieId);
 			}
 			else if (e.CommandName == "DeleteMovie")
 			{
-				int movieId = int.Parse(e.CommandArgument.ToString());
+				movieId = int.Parse(e.CommandArgument.ToString());
 
 				DeleteMovieById(movieId);
 			}
@@ -158,11 +171,11 @@ namespace Fandoms
                 {
 					lblFandomNameFeedback.Text = "Please select a Fandom.";
 					lblFandomNameFeedback.Visible = true;
+					lblMovieNameFeedback.Visible = true;
                 }
 				else if(txtMovieName.Text == null || txtMovieName.Text == "")
                 {
 					lblFandomNameFeedback.Visible = false;
-					lblMovieNameFeedback.Text = "Please enter a valid Movie name.";
 					lblMovieNameFeedback.Visible = true;
 				}
 				else
@@ -183,13 +196,91 @@ namespace Fandoms
 						conn.Open();
 						cmd.ExecuteNonQuery();
 
-						lblMovieNameFeedback.Visible = true;
-						lblMovieNameFeedback.Text = "The Movie <strong>" + txtMovieName.Text + "</strong> was added successfully";
+						lblMovieNameFeedbackSuccess.Visible = true;
+						lblMovieNameFeedbackSuccess.Text = "The Movie <strong>" + txtMovieName.Text + "</strong> was added successfully";
 
 						BindMoviesList();
 					}
 				}
             }
         }
+
+        
+
+        protected void ddlFandomsView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+			if (ddlFandomsView.SelectedIndex == 0)
+            {
+				BindMoviesList();
+            }
+			else
+			{
+				BindSelectedFandom();
+			}
+		}
+
+		protected void BindSelectedFandom()
+		{
+			using (SqlConnection conn = new SqlConnection())
+			{
+				conn.ConnectionString = WebConfigurationManager.ConnectionStrings["FandomsConnectionString"].ConnectionString;
+
+				SqlCommand cmd = new SqlCommand();
+				cmd.CommandText = "SELECT * FROM Movies WHERE MovieId = " + ddlFandomsView.SelectedValue;
+				cmd.Connection = conn;
+
+				SqlDataAdapter sda = new SqlDataAdapter();
+				sda.SelectCommand = cmd;
+
+				DataTable dt = new DataTable();
+				conn.Open();
+
+				sda.Fill(dt);
+
+				gvMoviesList.DataSource = dt;
+				gvMoviesList.DataBind();
+				conn.Close();
+			}
+		}
+
+        protected void btnCancelAddMovie_Click(object sender, EventArgs e)
+        {
+			ViewMovies();
+		}
+
+		protected void btnAddNewMovie_Click(object sender, EventArgs e)
+		{
+			AddMovies();
+		}
+
+		protected void ViewMovies()
+        {
+			ddlFandomsView.SelectedIndex = 0;
+			ddlFandoms.SelectedIndex = 0;
+			txtMovieName.Text = "";
+			lblFandomNameFeedback.Visible = false;
+			lblMovieNameFeedback.Visible = false;
+			lblMovieNameFeedbackSuccess.Visible = false;
+			ddlFandomsView.Visible = true;
+			btnAddNewMovie.Visible = true;
+			pnlViewMovies.Visible = true;
+			pnlAddMovie.Visible = false;
+			pnlMovieList.Visible = true;
+		}
+
+		protected void AddMovies()
+        {
+			ddlFandoms.SelectedIndex = 0;
+			txtMovieName.Text = "";
+			lblFandomNameFeedback.Visible = false;
+			lblMovieNameFeedback.Visible = false;
+			lblMovieNameFeedbackSuccess.Visible = false;
+			ddlFandomsView.SelectedIndex = 0;
+			ddlFandomsView.Visible = false;
+			btnAddNewMovie.Visible = false;
+			pnlViewMovies.Visible = false;
+			pnlAddMovie.Visible = true;
+			pnlMovieList.Visible = true;
+		}
     }
 }
