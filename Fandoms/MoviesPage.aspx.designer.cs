@@ -87,6 +87,15 @@ namespace Fandoms
         protected global::System.Web.UI.WebControls.DropDownList ddlFandoms;
 
         /// <summary>
+        /// lblFandomNameRequired control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFandomNameRequired;
+
+        /// <summary>
         /// lblFandomNameFeedback control.
         /// </summary>
         /// <remarks>
@@ -114,6 +123,15 @@ namespace Fandoms
         protected global::System.Web.UI.WebControls.TextBox txtMovieName;
 
         /// <summary>
+        /// lblMovieNameRequired control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMovieNameRequired;
+
+        /// <summary>
         /// lblMovieNameFeedback control.
         /// </summary>
         /// <remarks>
@@ -123,13 +141,184 @@ namespace Fandoms
         protected global::System.Web.UI.WebControls.Label lblMovieNameFeedback;
 
         /// <summary>
-        /// lblMovieNameFeedbackSuccess control.
+        /// lblMovieRuntime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMovieNameFeedbackSuccess;
+        protected global::System.Web.UI.WebControls.Label lblMovieRuntime;
+
+        /// <summary>
+        /// txtMovieRuntime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMovieRuntime;
+
+        /// <summary>
+        /// lblMovieRuntimeFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMovieRuntimeFeedback;
+
+        /// <summary>
+        /// lblMovieRelease control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMovieRelease;
+
+        /// <summary>
+        /// txtMovieRelease control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMovieRelease;
+
+        /// <summary>
+        /// lblMovieReleaseFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMovieReleaseFeedback;
+
+        /// <summary>
+        /// lblMovieRating control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMovieRating;
+
+        /// <summary>
+        /// txtMovieRating control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMovieRating;
+
+        /// <summary>
+        /// lblMovieRatingFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMovieRatingFeedback;
+
+        /// <summary>
+        /// lblMovieScore control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMovieScore;
+
+        /// <summary>
+        /// txtMovieScore control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMovieScore;
+
+        /// <summary>
+        /// lblMovieScoreFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMovieScoreFeedback;
+
+        /// <summary>
+        /// lblMovieInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMovieInfo;
+
+        /// <summary>
+        /// lblMovieInfoRequired control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMovieInfoRequired;
+
+        /// <summary>
+        /// lblMovieInfoFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMovieInfoFeedback;
+
+        /// <summary>
+        /// txtMovieInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMovieInfo;
+
+        /// <summary>
+        /// lblMovieImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMovieImage;
+
+        /// <summary>
+        /// lblMovieImageRequired control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMovieImageRequired;
+
+        /// <summary>
+        /// fuMovieImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fuMovieImage;
+
+        /// <summary>
+        /// lblMovieImageFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMovieImageFeedback;
 
         /// <summary>
         /// btnAddMovie control.
@@ -166,6 +355,15 @@ namespace Fandoms
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancel;
+
+        /// <summary>
+        /// lblMovieNameFeedbackSuccess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMovieNameFeedbackSuccess;
 
         /// <summary>
         /// pnlMovieList control.
