@@ -53,14 +53,31 @@
                             font-family: 'Baskerville Old Face';
                             font-weight: bold;
                         }
+                        .navbar{
+                            background-color:black;
+                        }
                     </style>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/Home.aspx">Home</a></li>
-                        <li><a runat="server" href="~/FandomPage.aspx">Add/Edit Fandoms</a></li>
-                        <li><a runat="server" href="~/MoviesPage.aspx">Add/Edit Movies</a></li>
+                        <li><a runat="server" href="~/FandomPage.aspx">Manage Fandoms</a></li>
+                        <li><a runat="server" href="~/MoviesPage.aspx">Manage Movies</a></li>                       
                     </ul>
+                    <style>
+                        ul{
+                            list-style-position:inside;
+                            display:inline-block;
+                        }
+                        ul li{
+                            cursor:pointer;
+                            border-bottom:2px solid transparent;
+
+                        }
+                        ul li:hover{
+                            border-bottom:2px solid #ffffff;
+                        }
+                    </style>
                 </div>
             </div>
         </div>

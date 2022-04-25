@@ -139,6 +139,10 @@
     </None>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Home.aspx" />
+    <Content Include="Images\HarryPotter.jpg" />
+    <Content Include="Images\MCU.png" />
+    <Content Include="Images\StarWars.jpg" />
+    <Content Include="Images\Transfromers.png" />
     <Content Include="MoviesPage.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
