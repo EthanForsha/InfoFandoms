@@ -29,7 +29,6 @@
 
 
         <img alt="HerryPotter Poster" class="auto-style1" src="Images/HarryPotter.jpg" />
-
         <img alt="MCU Poster" class="auto-style3" src="Images/MCU.png" />
 
         <asp:Button ID="btnAddFandom" runat="server" Text="Add/Edit Fandom" CssClass="btn btn-primary" OnClick="Button1_Click" ToolTip="Clicking this allows you to view, add, and edit the Fandoms databse!" />
