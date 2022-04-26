@@ -6,7 +6,6 @@
 
     <asp:Panel ID="pnlTitle" runat="server" HorizontalAlign="Center">
         <h1>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Label ID="lblWelcome" runat="server" Text="Welcome to InfoFandoms!" Font-Bold="True" Font-Italic="False" Font-Size="XX-Large" style="font-family: 'Baskerville Old Face'" ></asp:Label>
         </h1>
 
@@ -17,24 +16,24 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-4">
-                    <h2>
-                        <asp:Label ID="lblWho" runat="server" Text="Who We Are!" Font-Bold="True"></asp:Label>
-                    </h2>
+                    
+                        <asp:Label ID="lblWho" runat="server" Text="Who We Are!" Font-Bold="True" style="font-size: x-large; font-family: Arial"></asp:Label>
+                    
                 </div>
                 <div class="col-xs-4">
-                    <h2>
-                        <asp:Label ID="lblWhat" runat="server" Text="What We Do!" Font-Bold="True"></asp:Label>
-                    </h2>
+                    
+                        <asp:Label ID="lblWhat" runat="server" Text="What We Do!" Font-Bold="True" style="font-size: x-large; font-family: Arial"></asp:Label>
+                    
                 </div>
                 <div class="col-xs-4">
-                    <h2>
-                        <asp:Label ID="lblWhy" runat="server" Text="Why We Do It!" Font-Bold="True"></asp:Label>
-                    </h2>
+                    
+                        <asp:Label ID="lblWhy" runat="server" Text="Why We Do It!" Font-Bold="True" style="font-size: x-large; font-family: Arial"></asp:Label>
+                    
                 </div>
             </div>
         </div>
         <txt>
-            We are a group of college students that have been assigned the task of creating
+                    We are a group of college students that have been assigned the task of creating
                         a client-server database. So why no have some fun with it?
                         We chose to create a database that allows us to input fandoms
                         and the movies associated with those fandoms! Follow the flow to add your own!</txt>
@@ -71,11 +70,12 @@
             margin-top: 25px;
             width: 200px;
             height: 50px;
+            border-radius: 5px 25px;
         }
 
         .auto-style1 {
             width: 150px;
-            height: 174px;
+            height: 175px;
         }
 
         .auto-style3 {
