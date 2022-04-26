@@ -143,7 +143,7 @@ namespace Fandoms
 				if (fuFandomImage.HasFile)
 				{
 					imagePath = fuFandomImage.FileName;
-					fuFandomImage.SaveAs(Server.MapPath(Request.ApplicationPath) + "Content/Fandoms/Images/" + imagePath);
+					fuFandomImage.SaveAs(Server.MapPath(Request.ApplicationPath) + "Content/Fandoms/" + imagePath);
 
 					using (SqlConnection conn = new SqlConnection())
 					{
@@ -163,6 +163,8 @@ namespace Fandoms
 						lblFeedbackFandomInfo.Visible = true;
 						lblFeedbackFandomInfo.Text = "The fandom information: " + txtFandomInfo.Text + " was added successfully";
 						BindFandomList();
+
+						Response.Redirect("Home.aspx");
 					}
 				}
 				else

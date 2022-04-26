@@ -2,17 +2,18 @@
   <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 	  <!DOCTYPE html>
 	<h2>Fandoms</h2>
+	  <asp:Label ID="lblFandomsPage" runat="server" Visible="true" Text="Here you can add your own Fandom to the list!"></asp:Label>
     <asp:Panel ID="pnlAddFandom" runat="server" ClientIDMode="Static">   
 		<div class="form-group">
 				<Label for="lblFandomName" CssClass="form-control">Fandom Name: </Label>
 				<asp:TextBox ID="txtFandomName" runat="server" CssClass="form-control"></asp:TextBox> 
 				<asp:RequiredFieldValidator ID="rfvFandomName" runat="server" ControlToValidate="txtFandomName" ValidationGroup="AddFandom" ErrorMessage="Name must be entered" ForeColor="#FF3300" CssClass="form-control"></asp:RequiredFieldValidator>
-				<asp:Label ID="lblFeedbackFandomName" runat="server" Visible="false" CssClass="form-control"></asp:Label>
+				<asp:Label ID="lblFeedbackFandomName" runat="server" Visible="false" CssClass="form-control" ForeColor="Green"></asp:Label>
 
 				<Label for="lblFandomInfo" CssClass="form-control">Fandom Information: </Label>
 				<asp:TextBox ID="txtFandomInfo" runat="server" TextMode="MultiLine" Rows="4" CssClass="form-control"></asp:TextBox> 
-				<asp:RequiredFieldValidator ID="rfvFandomInfo" runat="server" ControlToValidate="txtFandomName" ValidationGroup="AddFandom" ErrorMessage="Description must be entered" ForeColor="#FF3300" CssClass="form-control"></asp:RequiredFieldValidator>
-				<asp:Label ID="lblFeedbackFandomInfo" runat="server" Visible="false" CssClass="form-control"></asp:Label>
+				<asp:RequiredFieldValidator ID="rfvFandomInfo" runat="server" ControlToValidate="txtFandomInfo" ValidationGroup="AddFandom" ErrorMessage="Description must be entered" ForeColor="#FF3300" CssClass="form-control"></asp:RequiredFieldValidator>
+				<asp:Label ID="lblFeedbackFandomInfo" runat="server" Visible="false" CssClass="form-control" ForeColor="Green"></asp:Label>
 
 				<label for="fuFandomImage">Image: </label>
 				<asp:FileUpload ID="fuFandomImage" runat="server" ClientIDMode="Static" CssClass="form-control-file" /> 
