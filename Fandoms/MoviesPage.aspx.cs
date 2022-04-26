@@ -136,8 +136,8 @@ namespace Fandoms
 				if (sdr.Read())
 				{
 					txtMovieName.Text = sdr["MovieName"].ToString();
-					//txtMovieInfo.Text = sdr["MovieInfo"].ToString();
-					//txtMovieRuntime.Text = sdr["MovieRuntime"].ToString();
+					txtMovieInfo.Text = sdr["MovieInfo"].ToString();
+					txtMovieRuntime.Text = sdr["MovieRuntime"].ToString();
 					btnAddMovie.Visible = false;
 					btnSave.Visible = true;
 					btnCancel.Visible = true;
@@ -183,11 +183,7 @@ namespace Fandoms
                 {
 					lblMovieInfoFeedback.Visible = true;
                 }
-				if (fuMovieImage.HasFile == false)
-				{
-					lblMovieImageFeedback.Visible = true;
-				}
-				if((txtMovieRating.Text != "") && (txtMovieRating.Text != "G" || txtMovieRating.Text != "PG" || txtMovieRating.Text != "PG-13" || txtMovieRating.Text != "R" || txtMovieRating.Text != "NC-17"))
+				if((txtMovieRating.Text != "") && ((txtMovieRating.Text != "G") || (txtMovieRating.Text != "PG") || (txtMovieRating.Text != "PG-13") || (txtMovieRating.Text != "R") || (txtMovieRating.Text != "NC-17")))
                 {
 					lblMovieRatingFeedback.Visible = true;
                 }
@@ -202,7 +198,7 @@ namespace Fandoms
 				else
 				{
 					string imagePath = "";
-					if (fuMovieImage.HasFile)
+					if ((fuMovieImage.HasFile) && (ddlFandoms.SelectedIndex != 0) && (txtMovieName.Text != "") && (txtMovieInfo.Text != ""))
 					{ 
 						imagePath = fuMovieImage.FileName;
 						fuMovieImage.SaveAs(Server.MapPath(Request.ApplicationPath) + "Content/Fandoms/Images/" + imagePath);
@@ -219,7 +215,7 @@ namespace Fandoms
 
 							SqlCommand cmd = new SqlCommand();
 
-							cmd.CommandText = "INSERT INTO Movies (MovieName, FandomId, MovieFandomName, MovieInfo, MovieImage) VALUES ('" + txtMovieName.Text.Trim() + "', '" + ddlFandoms.SelectedValue + "','" + MovieFandomName + "', '" + imagePath + "')";
+							cmd.CommandText = "INSERT INTO Movies VALUES ('" + txtMovieName.Text.Trim() + "', '" + ddlFandoms.SelectedValue + "', '" + MovieFandomName + "', '" + txtMovieRuntime.Text + "', '" + txtMovieRelease.Text + "', '" + txtMovieInfo.Text + "', '" + imagePath + "', '" + txtMovieRating.Text + "', '" + txtMovieScore.Text + "')";
 
 							cmd.Connection = conn;
 							conn.Open();
@@ -227,6 +223,51 @@ namespace Fandoms
 
 							lblMovieNameFeedbackSuccess.Visible = true;
 							lblMovieNameFeedbackSuccess.Text = "The Movie <strong>" + txtMovieName.Text + "</strong> was added successfully";
+
+							txtMovieInfo.Text = "";
+							txtMovieName.Text = "";
+							txtMovieRating.Text = "";
+							txtMovieRelease.Text = "";
+							txtMovieRuntime.Text = "";
+							txtMovieScore.Text = "";
+							ddlFandoms.SelectedIndex = 0;
+							fuMovieImage.Attributes.Clear();
+
+							BindMoviesList();
+						}
+					}
+					else if((!fuMovieImage.HasFile) && (ddlFandoms.SelectedIndex != 0) && (txtMovieName.Text != "") && (txtMovieInfo.Text != ""))
+                    {
+						String MovieFandomName = (Convert.ToString(ddlFandoms.SelectedItem.Text));
+
+						lblFandomNameFeedback.Visible = false;
+						lblMovieNameFeedback.Visible = false;
+						lblMovieInfoFeedback.Visible = false;
+						lblMovieImageFeedback.Visible = true;
+
+						using (SqlConnection conn = new SqlConnection())
+						{
+							conn.ConnectionString = WebConfigurationManager.ConnectionStrings["FandomsConnectionString"].ConnectionString;
+
+							SqlCommand cmd = new SqlCommand();
+
+							cmd.CommandText = "INSERT INTO Movies (MovieName, FandomId, MovieFandomName, MovieInfo, MovieRuntime, MovieReleaseDate, MovieRating, MovieScore) VALUES ('" + txtMovieName.Text.Trim() + "', '" + ddlFandoms.SelectedValue + "','" + MovieFandomName + "', '" + txtMovieInfo.Text + "', '" + txtMovieRuntime.Text + "', '" + txtMovieRelease.Text + "', '" + txtMovieRating.Text + "', '" + txtMovieScore.Text + "')";
+
+							cmd.Connection = conn;
+							conn.Open();
+							cmd.ExecuteNonQuery();
+
+							lblMovieNameFeedbackSuccess.Visible = true;
+							lblMovieNameFeedbackSuccess.Text = "The Movie <strong>" + txtMovieName.Text + "</strong> was added successfully";
+
+							txtMovieInfo.Text = "";
+							txtMovieName.Text = "";
+							txtMovieRating.Text = "";
+							txtMovieRelease.Text = "";
+							txtMovieRuntime.Text = "";
+							txtMovieScore.Text = "";
+							ddlFandoms.SelectedIndex = 0;
+							fuMovieImage.Attributes.Clear();
 
 							BindMoviesList();
 						}
@@ -297,6 +338,10 @@ namespace Fandoms
 			lblMovieNameFeedbackSuccess.Visible = false;
 			lblMovieInfoFeedback.Visible = false;
 			lblMovieInfoFeedback.Visible = false;
+			lblMovieImageFeedback.Visible = false;
+			lblMovieRatingFeedback.Visible = false;
+			lblMovieReleaseFeedback.Visible = false;
+			lblMovieScoreFeedback.Visible = false;
 			ddlFandomsView.Visible = true;
 			btnAddNewMovie.Visible = true;
 			pnlViewMovies.Visible = true;
@@ -311,6 +356,12 @@ namespace Fandoms
 			lblFandomNameFeedback.Visible = false;
 			lblMovieNameFeedback.Visible = false;
 			lblMovieNameFeedbackSuccess.Visible = false;
+			lblMovieInfoFeedback.Visible = false;
+			lblMovieInfoFeedback.Visible = false;
+			lblMovieImageFeedback.Visible = false;
+			lblMovieRatingFeedback.Visible = false;
+			lblMovieReleaseFeedback.Visible = false;
+			lblMovieScoreFeedback.Visible = false;
 			ddlFandomsView.SelectedIndex = 0;
 			ddlFandomsView.Visible = false;
 			btnAddNewMovie.Visible = false;
