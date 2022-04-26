@@ -60,9 +60,8 @@
             <br />
             <br />
             <asp:Label ID="lblMovieImage" runat="server" Text="Please add a movie cover image: "></asp:Label>
-            <asp:Label ID="lblMovieImageRequired" runat="server" ForeColor="#FF3300" Text="*"></asp:Label>
             <asp:FileUpload ID="fuMovieImage" runat="server" />
-            <asp:Label ID="lblMovieImageFeedback" runat="server" ForeColor="#FF3300" Visible="False">Please add a movie cover image.</asp:Label>
+            <asp:Label ID="lblMovieImageFeedback" runat="server" ForeColor="#FF3300" Visible="False">Image was not provided or failed to add image.</asp:Label>
         </div>
         <div class="form-group">
             <asp:Button ID="btnAddMovie" runat="server" CssClass="btn btn-primary" Text="Add Movie" OnClick="btnAddMovie_Click" />
@@ -81,6 +80,7 @@
                 <asp:BoundField DataField="MovieFandomName" HeaderText="Fandom" />
                 <asp:BoundField HeaderText="Movie Title" DataField="MovieName" />
                 <asp:BoundField HeaderText="Runtime" DataField="MovieRuntime" />
+                <asp:BoundField DataField="MovieRating" HeaderText="Rating" />
                 <asp:BoundField HeaderText="Release Date" DataField="MovieReleaseDate" />
                 <asp:TemplateField HeaderText="Actions">
                     <ItemTemplate>
