@@ -42,13 +42,31 @@ namespace Fandoms
         protected global::System.Web.UI.WebControls.Panel pnlWelcome;
 
         /// <summary>
-        /// lblWWW control.
+        /// lblWho control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblWWW;
+        protected global::System.Web.UI.WebControls.Label lblWho;
+
+        /// <summary>
+        /// lblWhat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblWhat;
+
+        /// <summary>
+        /// lblWhy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblWhy;
 
         /// <summary>
         /// pnlButtons control.

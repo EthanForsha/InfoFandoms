@@ -1,19 +1,38 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="Fandoms.Home" %>
 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
 
     <asp:Panel ID="pnlTitle" runat="server" HorizontalAlign="Center">
         <h1>
-            <asp:Label ID="lblWelcome" runat="server" Text="Welcome to InfoFandoms!" Font-Bold="True" Font-Italic="True" Font-Size="XX-Large"></asp:Label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="lblWelcome" runat="server" Text="Welcome to InfoFandoms!" Font-Bold="True" Font-Italic="False" Font-Size="XX-Large" style="font-family: 'Baskerville Old Face'" ></asp:Label>
         </h1>
+
     </asp:Panel>
 
 
     <asp:Panel ID="pnlWelcome" runat="server" HorizontalAlign="Center">
-        <h2>
-            <asp:Label ID="lblWWW" runat="server" Text="Who we are. What we do. Why we do it." Font-Bold="True"></asp:Label>
-        </h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-4">
+                    <h2>
+                        <asp:Label ID="lblWho" runat="server" Text="Who We Are!" Font-Bold="True"></asp:Label>
+                    </h2>
+                </div>
+                <div class="col-xs-4">
+                    <h2>
+                        <asp:Label ID="lblWhat" runat="server" Text="What We Do!" Font-Bold="True"></asp:Label>
+                    </h2>
+                </div>
+                <div class="col-xs-4">
+                    <h2>
+                        <asp:Label ID="lblWhy" runat="server" Text="Why We Do It!" Font-Bold="True"></asp:Label>
+                    </h2>
+                </div>
+            </div>
+        </div>
         <txt>
             We are a group of college students that have been assigned the task of creating
                         a client-server database. So why no have some fun with it?
@@ -24,7 +43,7 @@
         <br />
 
     </asp:Panel>
-    
+
     <asp:Panel ID="pnlButtons" runat="server" HorizontalAlign="Center" Height="179px">
 
 
@@ -53,18 +72,22 @@
             width: 200px;
             height: 50px;
         }
+
         .auto-style1 {
             width: 150px;
             height: 174px;
         }
+
         .auto-style3 {
             width: 150px;
             height: 175px;
         }
+
         .auto-style4 {
             width: 150px;
             height: 175px;
         }
+
         .auto-style5 {
             width: 150px;
             height: 175px;
