@@ -2,7 +2,8 @@
   <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 	  <!DOCTYPE html>
 	<h2>Fandoms</h2>
-	  <asp:Label ID="lblFandomsPage" runat="server" Visible="true" Text="Here you can add your own Fandom to the list!"></asp:Label>
+	<h5>Here you can add your own Fandom to the list!</h5>
+	<!--  <asp:Label ID="lblFandomsPage" runat="server" Visible="true" Text="Here you can add your own Fandom to the list!"></asp:Label> -->
     <asp:Panel ID="pnlAddFandom" runat="server" ClientIDMode="Static">   
 		<div class="form-group">
 				<Label for="lblFandomName" CssClass="form-control">Fandom Name: </Label>
