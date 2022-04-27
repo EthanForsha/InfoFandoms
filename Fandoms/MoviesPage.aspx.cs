@@ -141,8 +141,8 @@ namespace Fandoms
 				SqlDataReader sdr = cmd.ExecuteReader();
 				if (sdr.Read())
 				{
-					int fandomId = int.Parse(sdr["FandomId"].ToString());
-					ddlFandoms.SelectedIndex = fandomId-16;
+					//int fandomId = int.Parse(sdr["FandomId"].ToString());
+					ddlFandoms.SelectedIndex = 0; // figure out how to change selectedIndex based on fandomId
 					lblMovieId.Text = sdr["MovieId"].ToString();
 					txtMovieName.Text = sdr["MovieName"].ToString();
 					txtMovieRuntime.Text = sdr["MovieRuntime"].ToString();
