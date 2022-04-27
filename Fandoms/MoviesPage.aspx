@@ -17,7 +17,7 @@
         </asp:Panel>
     <asp:Panel ID="pnlAddMovie" runat="server" ClientIDMode="Static" Visible="False">
         <div class="form-group">
-            <br />
+            <asp:Label ID="lblEditMovieInFandom" runat="server" Visible="False"></asp:Label>
             <asp:Label ID="lblSelectFandom" runat="server" Text="Please select a fandom: "></asp:Label>
             <asp:DropDownList ID="ddlFandoms" runat="server" Width="604px" AppendDataBoundItems="True">
             </asp:DropDownList>
@@ -69,7 +69,8 @@
             <asp:Button ID="btnSave" runat="server" CssClass="btn btn-primary" Text="Save" Visible="False" OnClick="btnSave_Click" />
             <asp:Button ID="btnCancel" runat="server" CssClass="btn btn-danger" Text="Cancel" Visible="False" OnClick="btnCancel_Click" />
             <asp:Label ID="lblMovieNameFeedbackSuccess" runat="server" ForeColor="#32CD32" Visible="False"></asp:Label>
-            <asp:Label ID="lblMovieId" runat="server" Visible="False">TEST</asp:Label>
+            <asp:Label ID="lblMovieId" runat="server" Visible="False"></asp:Label>
+            <asp:Label ID="lblFandomName" runat="server" Visible="False"></asp:Label>
             <br />
             <br />
         </div>

@@ -69,6 +69,15 @@ namespace Fandoms
         protected global::System.Web.UI.WebControls.Panel pnlAddMovie;
 
         /// <summary>
+        /// lblEditMovieInFandom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEditMovieInFandom;
+
+        /// <summary>
         /// lblSelectFandom control.
         /// </summary>
         /// <remarks>
@@ -364,6 +373,15 @@ namespace Fandoms
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMovieId;
+
+        /// <summary>
+        /// lblFandomName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFandomName;
 
         /// <summary>
         /// pnlMovieList control.
