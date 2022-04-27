@@ -117,8 +117,7 @@ input,
 optgroup,
 select,
 textarea {
-  color: inherit;
-  font: inherit;
+  color: #FFFFFF;
   margin: 0;
 }
 button {
@@ -1092,8 +1091,8 @@ input,
 button,
 select,
 textarea {
-  font-family: inherit;
-  font-size: inherit;
+  font-family: Arial;
+  font-size: 7pt;
   line-height: inherit;
 }
 a {
