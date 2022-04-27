@@ -1,14 +1,14 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MoviesPage.aspx.cs" Inherits="Fandoms.MoviesPage" MasterPageFile="~/Site.Master" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-	<!DOCTYPE html>
+    <!DOCTYPE html>
     <div class="form-group">
         <h2>View or Manage Movies</h2>
         <asp:Label ID="lblMoviesPage" runat="server" Text="Here you can view all the movies in a chosen Fandom, and you can even add your own movies to the Fandom if they are not already there!"></asp:Label>
     </div>
     <asp:Panel ID="pnlViewMovies" runat="server" ClientIDMode="Static">
     <div class="form-group">
-        <asp:Label ID="lblSelectFandomView" runat="server" Text="View movies only from this fandom: "></asp:Label>
-            <asp:DropDownList ID="ddlFandomsView" runat="server" Width="604px" AppendDataBoundItems="True" OnSelectedIndexChanged="ddlFandomsView_SelectedIndexChanged">
+        <asp:Label ID="lblSelectFandomView" runat="server" Text="View movies only from this fandom: " Visible="False"></asp:Label>
+            <asp:DropDownList ID="ddlFandomsView" runat="server" Width="604px" AppendDataBoundItems="True" OnSelectedIndexChanged="ddlFandomsView_SelectedIndexChanged" Visible="False">
             </asp:DropDownList>
         <br />
         <br />
