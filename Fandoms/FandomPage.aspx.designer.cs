@@ -15,13 +15,13 @@ namespace Fandoms
 	{
 
 		/// <summary>
-		/// lblFandomsPage control.
+		/// lblHeader control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label lblFandomsPage;
+		protected global::System.Web.UI.WebControls.Label lblHeader;
 
 		/// <summary>
 		/// pnlAddFandom control.
@@ -96,13 +96,13 @@ namespace Fandoms
 		protected global::System.Web.UI.WebControls.FileUpload fuFandomImage;
 
 		/// <summary>
-		/// rfvImage control.
+		/// lblImage control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvImage;
+		protected global::System.Web.UI.WebControls.Label lblImage;
 
 		/// <summary>
 		/// btnAddFandom control.
@@ -157,5 +157,41 @@ namespace Fandoms
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.GridView gvFandomList;
+
+		/// <summary>
+		/// pnlViewFandomImages control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Panel pnlViewFandomImages;
+
+		/// <summary>
+		/// lblFandomImage control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label lblFandomImage;
+
+		/// <summary>
+		/// imgFandom control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Image imgFandom;
+
+		/// <summary>
+		/// btnGoBack control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Button btnGoBack;
 	}
 }
