@@ -357,6 +357,15 @@ namespace Fandoms
         protected global::System.Web.UI.WebControls.Label lblMovieNameFeedbackSuccess;
 
         /// <summary>
+        /// lblMovieId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMovieId;
+
+        /// <summary>
         /// pnlMovieList control.
         /// </summary>
         /// <remarks>
