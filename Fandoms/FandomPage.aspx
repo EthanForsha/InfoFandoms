@@ -8,17 +8,19 @@
 		<div class="form-group">
 				<Label for="lblFandomName" CssClass="form-control">Fandom Name: </Label>
 				<asp:TextBox ID="txtFandomName" runat="server" CssClass="form-control"></asp:TextBox> 
-				<asp:RequiredFieldValidator ID="rfvFandomName" runat="server" ControlToValidate="txtFandomName" ValidationGroup="AddFandom" ErrorMessage="Name must be entered" ForeColor="#FF3300" CssClass="form-control"></asp:RequiredFieldValidator>
-				<asp:Label ID="lblFeedbackFandomName" runat="server" Visible="false" CssClass="form-control" ForeColor="Green"></asp:Label>
+				<asp:RequiredFieldValidator ID="rfvFandomName" runat="server" ControlToValidate="txtFandomName" ValidationGroup="AddFandom" ErrorMessage="Name must be entered" ForeColor="#FF3300"></asp:RequiredFieldValidator> 
+				<br>
+				<asp:Label ID="lblFeedbackFandomName" runat="server" Visible="false" ForeColor="Green" CssClass="form-control"></asp:Label>
 
 				<Label for="lblFandomInfo" CssClass="form-control">Fandom Information: </Label>
 				<asp:TextBox ID="txtFandomInfo" runat="server" TextMode="MultiLine" Rows="4" CssClass="form-control"></asp:TextBox> 
-				<asp:RequiredFieldValidator ID="rfvFandomInfo" runat="server" ControlToValidate="txtFandomInfo" ValidationGroup="AddFandom" ErrorMessage="Description must be entered" ForeColor="#FF3300" CssClass="form-control"></asp:RequiredFieldValidator>
-				<asp:Label ID="lblFeedbackFandomInfo" runat="server" Visible="false" CssClass="form-control" ForeColor="Green"></asp:Label>
+				<asp:RequiredFieldValidator ID="rfvFandomInfo" runat="server" ControlToValidate="txtFandomInfo" ValidationGroup="AddFandom" ErrorMessage="Description must be entered" ForeColor="#FF3300"></asp:RequiredFieldValidator>
+				<br>
+				<asp:Label ID="lblFeedbackFandomInfo" runat="server" Visible="false" ForeColor="Green" CssClass="form-control"></asp:Label>
 
 				<label for="fuFandomImage">Image: </label>
 				<asp:FileUpload ID="fuFandomImage" runat="server" ClientIDMode="Static" CssClass="form-control-file" /> 
-				<asp:Label ID="lblImage" runat="server" Visible="false" CssClass="form-control"></asp:Label>
+				<asp:RequiredFieldValidator ID="rfvImage" runat="server" Visible="false" CssClass="form-control" ValidationGroup="AddFandom" ControlToValidate="fuFandomImage" ErrorMessage="Please aDD an image" ForeColor="#FF3300"></asp:RequiredFieldValidator>
 		</div>
 		<div class="form-group">
 				<asp:Button CssClass="btn btn-primary" ID="btnAddFandom" runat="server" Text="Add" ValidationGroup="AddFandom" OnClick="btnAddFandom_Click"/>

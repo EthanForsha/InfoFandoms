@@ -117,7 +117,8 @@ input,
 optgroup,
 select,
 textarea {
-  color: #FFFFFF;
+  color: inherit;
+  font: inherit;
   margin: 0;
 }
 button {
@@ -1091,8 +1092,8 @@ input,
 button,
 select,
 textarea {
-  font-family: Arial;
-  font-size: 7pt;
+  font-family: inherit;
+  font-size: inherit;
   line-height: inherit;
 }
 a {
@@ -1268,7 +1269,6 @@ h1,
 h2,
 .h2 {
   font-size: 30px;
-    width: 445px;
 }
 h3,
 .h3 {
@@ -1711,9 +1711,7 @@ pre code {
   width: 41.66666667%;
 }
 .col-xs-4 {
-  width: 33%;
-    top: 1px;
-    left: 1px;
+  width: 33.33333333%;
 }
 .col-xs-3 {
   width: 25%;
@@ -2678,6 +2676,7 @@ output {
   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
 }
+
 .form-control:focus {
   border-color: #66afe9;
   outline: 0;
@@ -2740,7 +2739,7 @@ textarea.form-control {
   }
 }
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 .radio,
 .checkbox {

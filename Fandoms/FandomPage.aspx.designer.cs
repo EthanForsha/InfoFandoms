@@ -96,13 +96,13 @@ namespace Fandoms
 		protected global::System.Web.UI.WebControls.FileUpload fuFandomImage;
 
 		/// <summary>
-		/// lblImage control.
+		/// rfvImage control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label lblImage;
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvImage;
 
 		/// <summary>
 		/// btnAddFandom control.
