@@ -12,7 +12,7 @@
             </asp:DropDownList>
         <br />
         <br />
-        <asp:Button ID="btnAddNewMovie" runat="server" Text="Add New Movie" CssClass="btn btn-primary" OnClick="btnAddNewMovie_Click"/>
+        <asp:Button ID="btnAddNewMovie" runat="server" Text="Add or Edit a Movie" CssClass="btn btn-primary" OnClick="btnAddNewMovie_Click"/>
     </div>
         </asp:Panel>
     <asp:Panel ID="pnlAddMovie" runat="server" ClientIDMode="Static" Visible="False">
@@ -36,7 +36,7 @@
             <asp:Label ID="lblMovieRuntimeFeedback" runat="server" ForeColor="#FF3300" Visible="False">Please enter a valid movie runtime.</asp:Label>
             <br />
             <br />
-            <asp:Label ID="lblMovieRelease" runat="server" Text="Please enter the release date of the movie (YYYY-MM-DD): "></asp:Label>
+            <asp:Label ID="lblMovieRelease" runat="server" Text="Please enter the release date of the movie (MM/DD/YYYY): "></asp:Label>
             <asp:TextBox ID="txtMovieRelease" runat="server"></asp:TextBox>
             <asp:Label ID="lblMovieReleaseFeedback" runat="server" ForeColor="#FF3300" Visible="False">Please enter a valid movie release date.</asp:Label>
             <br />
@@ -66,17 +66,18 @@
         <div class="form-group">
             <asp:Button ID="btnAddMovie" runat="server" CssClass="btn btn-primary" Text="Add Movie" OnClick="btnAddMovie_Click" />
             <asp:Button ID="btnCancelAddMovie" runat="server" CssClass="btn btn-danger" OnClick="btnCancelAddMovie_Click" Text="Cancel" />
-            <asp:Button ID="btnSave" runat="server" CssClass="btn btn-primary" Text="Save" Visible="False" />
-            <asp:Button ID="btnCancel" runat="server" CssClass="btn btn-danger" Text="Cancel" Visible="False" />
+            <asp:Button ID="btnSave" runat="server" CssClass="btn btn-primary" Text="Save" Visible="False" OnClick="btnSave_Click" />
+            <asp:Button ID="btnCancel" runat="server" CssClass="btn btn-danger" Text="Cancel" Visible="False" OnClick="btnCancel_Click" />
             <asp:Label ID="lblMovieNameFeedbackSuccess" runat="server" ForeColor="#32CD32" Visible="False"></asp:Label>
+            <asp:Label ID="lblMovieId" runat="server" Visible="False">TEST</asp:Label>
             <br />
             <br />
         </div>
     </asp:Panel>
     <asp:Panel ID="pnlMovieList" runat="server">
-        <asp:GridView ID="gvMoviesList" runat="server" CssClass="table table-striped" AllowPaging="True" AllowSorting="True" DataKeyNames="MovieId" AutoGenerateColumns="False" Width="1200px" Style="margin-top: 0px">
+        <asp:GridView ID="gvMoviesList" runat="server" CssClass="table table-striped" AllowPaging="True" AllowSorting="True" DataKeyNames="MovieId" AutoGenerateColumns="False" Width="1200px" Style="margin-top: 0px" OnRowCommand="gvMoviesList_RowCommand" OnRowDataBound="gvMoviesList_RowDataBound">
             <Columns>
-                <asp:BoundField HeaderText="Movie ID" DataField="MovieId" />
+                <asp:BoundField DataField="MovieId" HeaderText="Movie ID" />
                 <asp:BoundField DataField="MovieFandomName" HeaderText="Fandom" />
                 <asp:BoundField HeaderText="Movie Title" DataField="MovieName" />
                 <asp:BoundField HeaderText="Runtime" DataField="MovieRuntime" />
@@ -84,9 +85,9 @@
                 <asp:BoundField HeaderText="Release Date" DataField="MovieReleaseDate" />
                 <asp:TemplateField HeaderText="Actions">
                     <ItemTemplate>
-                        <asp:Button ID="btnViewMovie" runat="server" CssClass="btn btn-success" Text="View" CommandName="ViewMovie" />
-                        <asp:Button ID="btnEditMovie" runat="server" CssClass="btn btn-primary" Text="Edit" CommandName="EditMovie" />
-                        <asp:Button ID="btnDeleteMovie" runat="server" CssClass="btn btn-danger" Text="Delete" OnClientClick="return confirm('Are you sure you want to delete this movie?');" CommandName="DeleteMovie" />
+                        <asp:Button ID="btnViewMovie" runat="server" CssClass="btn btn-success" Text="View" CommandName="ViewMovie" CommandArgument="MovieId" />
+                        <asp:Button ID="btnEditMovie" runat="server" CssClass="btn btn-primary" Text="Edit" CommandName="EditMovie" CommandArgument="MovieId"/>
+                        <asp:Button ID="btnDeleteMovie" runat="server" CssClass="btn btn-danger" Text="Delete" OnClientClick="return confirm('Are you sure you want to delete this movie?');" CommandName="DeleteMovie" CommandArgument="MovieId"/>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
