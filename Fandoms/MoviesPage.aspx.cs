@@ -359,6 +359,8 @@ namespace Fandoms
 		{
 			int movieId = int.Parse(lblMovieId.Text);
 			SaveMovieById(movieId);
+			btnSave.Visible = false;
+			btnAddMovie.Visible = true;
 		}
 
 		private void SaveMovieById(int movieId)

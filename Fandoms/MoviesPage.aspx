@@ -69,7 +69,7 @@
             <asp:Button ID="btnSave" runat="server" CssClass="btn btn-primary" Text="Save" Visible="False" OnClick="btnSave_Click" />
             <asp:Button ID="btnCancel" runat="server" CssClass="btn btn-danger" Text="Cancel" Visible="False" OnClick="btnCancel_Click" />
             <asp:Label ID="lblMovieNameFeedbackSuccess" runat="server" ForeColor="#32CD32" Visible="False"></asp:Label>
-            <asp:Label ID="lblMovieId" runat="server">TEST</asp:Label>
+            <asp:Label ID="lblMovieId" runat="server" Visible="False">TEST</asp:Label>
             <br />
             <br />
         </div>
