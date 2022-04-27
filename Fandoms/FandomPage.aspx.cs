@@ -169,8 +169,7 @@ namespace Fandoms
 				}
 				else
 				{
-					lblImage.Visible = true;
-					lblImage.Text = "Please add an image";
+					rfvImage.ErrorMessage = "Please add an image";
 				}
 			}
 		}
