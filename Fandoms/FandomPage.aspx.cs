@@ -14,6 +14,8 @@ namespace Fandoms
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			pnlViewFandomImages.Visible = false;
+
 			if (!Page.IsPostBack)
 			{
 				BindFandomList();
@@ -27,6 +29,7 @@ namespace Fandoms
 				conn.ConnectionString = WebConfigurationManager.ConnectionStrings["FandomsConnectionString"].ConnectionString;
 
 				SqlCommand cmd = new SqlCommand();
+
 				cmd.CommandText = "SELECT * FROM Fandoms";
 				cmd.Connection = conn;
 
@@ -47,9 +50,11 @@ namespace Fandoms
 		{
 			if (e.Row.RowType == DataControlRowType.DataRow)
 			{
+				Button viewButton = e.Row.FindControl("btnView") as Button;
 				Button editButton = e.Row.FindControl("btnEdit") as Button;
 				Button deleteButton = e.Row.FindControl("btnDelete") as Button;
 
+				viewButton.CommandArgument = e.Row.Cells[0].Text;
 				editButton.CommandArgument = e.Row.Cells[0].Text;
 				deleteButton.CommandArgument = e.Row.Cells[0].Text;
 			}
@@ -57,7 +62,14 @@ namespace Fandoms
 
 		protected void gvFandomList_RowCommand(object sender, GridViewCommandEventArgs e)
 		{
-			if (e.CommandName == "EditFandom")
+			if (e.CommandName == "ViewFandom")
+			{
+				int fandomId = int.Parse(e.CommandArgument.ToString());
+				lblFandomId.Text = e.CommandArgument.ToString();
+
+				ViewFandomById(fandomId);
+			}
+			else if(e.CommandName == "EditFandom")
 			{
 				int fandomId = int.Parse(e.CommandArgument.ToString());
 				lblFandomId.Text = e.CommandArgument.ToString();
@@ -72,6 +84,38 @@ namespace Fandoms
 			}
 		}
 
+		private void ViewFandomById(int fandomId)
+		{
+			using (SqlConnection conn = new SqlConnection())
+			{
+				conn.ConnectionString = WebConfigurationManager.ConnectionStrings["FandomsConnectionString"].ConnectionString;
+
+				SqlCommand cmd = new SqlCommand();
+				cmd.CommandText = "SELECT FandomImagePath FROM Fandoms WHERE FandomId = @fandomId";
+				cmd.Parameters.AddWithValue("@fandomId", fandomId);
+				cmd.Connection = conn;
+				conn.Open();
+
+				cmd.ExecuteNonQuery();
+
+				SqlDataReader sdr = cmd.ExecuteReader();
+
+				if (sdr.HasRows)
+				{
+					sdr.Read();
+					imgFandom.ImageUrl = "/Content/Fandoms/" + sdr["FandomImagePath"].ToString();
+				}
+
+				pnlViewFandomImages.Visible = true;
+				pnlAddFandom.Visible = false;
+				pnlFandomList.Visible = false;
+				btnAddFandom.Visible = false;
+				btnSaveFandom.Visible = false;
+				btnCancel.Visible = false;
+				lblHeader.Visible = false;
+			}
+		}
+
 		private void EditFandomById(int fandomId)
 		{
 			using (SqlConnection conn = new SqlConnection())
@@ -79,7 +123,8 @@ namespace Fandoms
 				conn.ConnectionString = WebConfigurationManager.ConnectionStrings["FandomsConnectionString"].ConnectionString;
 
 				SqlCommand cmd = new SqlCommand();
-				cmd.CommandText = "SELECT * FROM Fandoms WHERE FandomId = " + fandomId;
+				cmd.CommandText = "SELECT * FROM Fandoms WHERE FandomId = @fandomId";
+				cmd.Parameters.AddWithValue("@fandomId", fandomId);
 				cmd.Connection = conn;
 				conn.Open();
 
@@ -88,6 +133,7 @@ namespace Fandoms
 				{
 					txtFandomName.Text = sdr["FandomName"].ToString();
 					txtFandomInfo.Text = sdr["FandomInfo"].ToString();
+					imgFandom.ImageUrl = "/Content/Fandoms/" + sdr["FandomImagePath"].ToString();
 					btnAddFandom.Visible = false;
 					btnSaveFandom.Visible = true;
 					btnCancel.Visible = true;
@@ -103,7 +149,8 @@ namespace Fandoms
 				conn.ConnectionString = WebConfigurationManager.ConnectionStrings["FandomsConnectionString"].ConnectionString;
 
 				SqlCommand cmd = new SqlCommand();
-				cmd.CommandText = "DELETE FROM Fandoms WHERE FandomId = " + fandomId;
+				cmd.CommandText = "DELETE FROM Fandoms WHERE FandomId = @fandomId";
+				cmd.Parameters.AddWithValue("@fandomId", fandomId);
 				cmd.Connection = conn;
 				conn.Open();
 
@@ -119,7 +166,11 @@ namespace Fandoms
 				conn.ConnectionString = WebConfigurationManager.ConnectionStrings["FandomsConnectionString"].ConnectionString;
 
 				SqlCommand cmd = new SqlCommand();
-				cmd.CommandText = "UPDATE Fandoms SET FandomName = '" + txtFandomName.Text + "', FandomInfo= '" + txtFandomInfo.Text + "'WHERE FandomId = " + fandomId;
+				cmd.CommandText = "UPDATE Fandoms SET FandomName = @fandomName, FandomInfo = @fandomInfo, FandomImagePath = @fandomImagePath WHERE FandomId = @fandomId";
+				cmd.Parameters.AddWithValue("@fandomName", txtFandomName.Text.Trim());
+				cmd.Parameters.AddWithValue("@fandomInfo", txtFandomInfo.Text.Trim());
+				cmd.Parameters.AddWithValue("@fandomImagePath", fuFandomImage.FileName);
+				cmd.Parameters.AddWithValue("@fandomId", fandomId);
 				cmd.Connection = conn;
 				conn.Open();
 
@@ -140,8 +191,13 @@ namespace Fandoms
 			if (Page.IsValid)
 			{
 				string imagePath = "";
+				string fullPath;
 				if (fuFandomImage.HasFile)
 				{
+					lblImage.Visible = false;
+					lblFeedbackFandomInfo.Visible = false;
+					lblFeedbackFandomName.Visible = false;
+
 					imagePath = fuFandomImage.FileName;
 					fuFandomImage.SaveAs(Server.MapPath(Request.ApplicationPath) + "Content/Fandoms/" + imagePath);
 
@@ -150,9 +206,11 @@ namespace Fandoms
 						conn.ConnectionString = WebConfigurationManager.ConnectionStrings["FandomsConnectionString"].ConnectionString;
 
 						SqlCommand cmd = new SqlCommand();
-						cmd.CommandText = "INSERT INTO Fandoms(FandomName, FandomInfo) VALUES (@fandomName, @fandomInfo)";
+						cmd.CommandText = "INSERT INTO Fandoms(FandomName, FandomInfo, FandomImagePath) VALUES (@fandomName, @fandomInfo, @fandomImagePath)";
 						cmd.Parameters.AddWithValue("@fandomName", txtFandomName.Text.Trim()); 
-						cmd.Parameters.AddWithValue("@hashedPassword", txtFandomInfo.Text.Trim());
+						cmd.Parameters.AddWithValue("@fandomInfo", txtFandomInfo.Text.Trim());
+						cmd.Parameters.AddWithValue("@fandomImagePath", imagePath);
+						cmd.Connection = conn;
 
 						conn.Open();
 						cmd.ExecuteNonQuery();
@@ -161,15 +219,14 @@ namespace Fandoms
 						lblFeedbackFandomName.Text = "The fandom <strong>" + txtFandomName.Text + "</strong> was added successfully";
 
 						lblFeedbackFandomInfo.Visible = true;
-						lblFeedbackFandomInfo.Text = "The fandom information: " + txtFandomInfo.Text + " was added successfully";
+						lblFeedbackFandomInfo.Text = "The fandom information was added successfully";
 						BindFandomList();
-
-						Response.Redirect("Home.aspx");
 					}
 				}
 				else
 				{
-					rfvImage.ErrorMessage = "Please add an image";
+					lblImage.Visible = true;
+					lblImage.Text = "Please add an image";
 				}
 			}
 		}
@@ -189,6 +246,13 @@ namespace Fandoms
 			txtFandomName.Text = "";
 			txtFandomInfo.Text = "";
 
+		}
+
+		protected void btnGoBack_Click(object sender, EventArgs e)
+		{
+			pnlAddFandom.Visible = true;
+			pnlFandomList.Visible = true;
+			btnAddFandom.Visible = true;
 		}
 	}
 }
