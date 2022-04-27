@@ -51,15 +51,6 @@ namespace Fandoms
 		protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFandomName;
 
 		/// <summary>
-		/// lblFeedbackFandomName control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label lblFeedbackFandomName;
-
-		/// <summary>
 		/// txtFandomInfo control.
 		/// </summary>
 		/// <remarks>
@@ -139,6 +130,15 @@ namespace Fandoms
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.Label lblFandomId;
+
+		/// <summary>
+		/// lblFeedbackFandomName control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label lblFeedbackFandomName;
 
 		/// <summary>
 		/// pnlFandomList control.

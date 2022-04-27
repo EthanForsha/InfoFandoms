@@ -191,11 +191,9 @@ namespace Fandoms
 			if (Page.IsValid)
 			{
 				string imagePath = "";
-				string fullPath;
 				if (fuFandomImage.HasFile)
 				{
 					lblImage.Visible = false;
-					lblFeedbackFandomInfo.Visible = false;
 					lblFeedbackFandomName.Visible = false;
 
 					imagePath = fuFandomImage.FileName;
@@ -217,9 +215,6 @@ namespace Fandoms
 
 						lblFeedbackFandomName.Visible = true;
 						lblFeedbackFandomName.Text = "The fandom <strong>" + txtFandomName.Text + "</strong> was added successfully";
-
-						lblFeedbackFandomInfo.Visible = true;
-						lblFeedbackFandomInfo.Text = "The fandom information was added successfully";
 						BindFandomList();
 					}
 				}
