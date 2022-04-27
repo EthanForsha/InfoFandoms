@@ -150,9 +150,9 @@ namespace Fandoms
 						conn.ConnectionString = WebConfigurationManager.ConnectionStrings["FandomsConnectionString"].ConnectionString;
 
 						SqlCommand cmd = new SqlCommand();
-						cmd.Connection = conn;
-
-						cmd.CommandText = "INSERT INTO Fandoms(FandomName, FandomInfo) VALUES ('" + txtFandomName.Text.Trim() + "', '" + txtFandomInfo.Text.Trim())";
+						cmd.CommandText = "INSERT INTO Fandoms(FandomName, FandomInfo) VALUES (@fandomName, @fandomInfo)";
+						cmd.Parameters.AddWithValue("@fandomName", txtFandomName.Text.Trim()); 
+						cmd.Parameters.AddWithValue("@hashedPassword", txtFandomInfo.Text.Trim());
 
 						conn.Open();
 						cmd.ExecuteNonQuery();
