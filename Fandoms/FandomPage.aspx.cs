@@ -152,7 +152,7 @@ namespace Fandoms
 						SqlCommand cmd = new SqlCommand();
 						cmd.Connection = conn;
 
-						cmd.CommandText = "INSERT INTO Fandoms(FandomName, FandomInfo, FandomImage) VALUES ('" + txtFandomName.Text.Trim() + "', '" + txtFandomInfo.Text.Trim() + "', '" + imagePath + "')";
+						cmd.CommandText = "INSERT INTO Fandoms(FandomName, FandomInfo) VALUES ('" + txtFandomName.Text.Trim() + "', '" + txtFandomInfo.Text.Trim())";
 
 						conn.Open();
 						cmd.ExecuteNonQuery();
