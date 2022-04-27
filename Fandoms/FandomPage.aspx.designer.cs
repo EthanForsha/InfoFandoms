@@ -69,15 +69,6 @@ namespace Fandoms
 		protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFandomInfo;
 
 		/// <summary>
-		/// lblFeedbackFandomInfo control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label lblFeedbackFandomInfo;
-
-		/// <summary>
 		/// fuFandomImage control.
 		/// </summary>
 		/// <remarks>

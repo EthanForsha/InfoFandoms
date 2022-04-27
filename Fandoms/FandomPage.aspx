@@ -5,7 +5,6 @@
     <asp:Label ID="lblHeader" runat="server">Here you can add your own Fandom to the list!</asp:Label>
 	<br>
 	<br>
-	<!-- <h5>Here you can add your own Fandom to the list!</h5> -->
     <asp:Panel ID="pnlAddFandom" runat="server" ClientIDMode="Static">   
 		<div class="form-group">
 				<Label for="lblFandomName" CssClass="form-control">Fandom Name: </Label>
@@ -17,8 +16,6 @@
 				<Label for="lblFandomInfo" CssClass="form-control">Fandom Information: </Label>
 				<asp:TextBox ID="txtFandomInfo" runat="server" TextMode="MultiLine" Rows="4" CssClass="form-control"></asp:TextBox> 
 				<asp:RequiredFieldValidator ID="rfvFandomInfo" runat="server" ControlToValidate="txtFandomInfo" ValidationGroup="AddFandom" ErrorMessage="Description must be entered" ForeColor="#FF3300"></asp:RequiredFieldValidator>
-				<br>
-				<!-- <asp:Label ID="lblFeedbackFandomInfo" runat="server" Visible="false" ForeColor="Green"></asp:Label> -->
 				<br>
 				<label for="fuFandomImage">Image: </label>
 				<asp:FileUpload ID="fuFandomImage" runat="server" ClientIDMode="Static" CssClass="form-control-file" /> 
