@@ -1,22 +1,26 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MoviesPage.aspx.cs" Inherits="Fandoms.MoviesPage" MasterPageFile="~/Site.Master" %>
+
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <!DOCTYPE html>
-    <div class="form-group">
-        <h2>View or Manage Movies</h2>
-        <asp:Label ID="lblMoviesPage" runat="server" Text="Here you can view all the movies in a chosen Fandom, and you can even add your own movies to the Fandom if they are not already there!"></asp:Label>
-    </div>
+    <asp:Panel ID="pnlManageMoviesHeader" runat="server" ClientIDMode="Static">
+        <div class="form-group">
+            <h2>View or Manage Movies</h2>
+            <asp:Label ID="lblMoviesPage" runat="server" Text="Here you can view all the movies in a chosen Fandom, and you can even add your own movies to the Fandom if they are not already there!"></asp:Label>
+        </div>
+    </asp:Panel>
     <asp:Panel ID="pnlViewMovies" runat="server" ClientIDMode="Static">
-    <div class="form-group">
-        <asp:Label ID="lblSelectFandomView" runat="server" Text="View movies only from this fandom: " Visible="False"></asp:Label>
-            <asp:DropDownList ID="ddlFandomsView" runat="server" Width="604px" AppendDataBoundItems="True" OnSelectedIndexChanged="ddlFandomsView_SelectedIndexChanged" Visible="False">
+        <div class="form-group">
+            <asp:DropDownList ID="ddlFandomsView" runat="server" AppendDataBoundItems="True" Visible="False" Width="604px">
             </asp:DropDownList>
-        <br />
-        <br />
-        <asp:Button ID="btnAddNewMovie" runat="server" Text="Add or Edit a Movie" CssClass="btn btn-primary" OnClick="btnAddNewMovie_Click"/>
-    </div>
-        </asp:Panel>
+            <asp:Button ID="btnViewMoviesInFandom" runat="server" CssClass="btn-primary" OnClick="btnViewMoviesInFandom_Click" Text="View Movies Only in this Fandom" />
+            <br />
+            <br />
+            <asp:Button ID="btnAddNewMovie" runat="server" Text="Add or Edit a Movie" CssClass="btn btn-primary" OnClick="btnAddNewMovie_Click" />
+        </div>
+    </asp:Panel>
     <asp:Panel ID="pnlAddMovie" runat="server" ClientIDMode="Static" Visible="False">
         <div class="form-group">
+            <br />
             <asp:Label ID="lblEditMovieInFandom" runat="server" Visible="False"></asp:Label>
             <asp:Label ID="lblSelectFandom" runat="server" Text="Please select a fandom: "></asp:Label>
             <asp:DropDownList ID="ddlFandoms" runat="server" Width="604px" AppendDataBoundItems="True">
@@ -56,7 +60,7 @@
             <asp:Label ID="lblMovieInfoFeedback" runat="server" ForeColor="#FF3300" Visible="False">Please enter a movie synopsis.</asp:Label>
             <br />
             <asp:TextBox ID="txtMovieInfo" runat="server" Height="120px" Width="800px" TextMode="MultiLine" Rows="4"></asp:TextBox>
-            
+
             <br />
             <br />
             <asp:Label ID="lblMovieImage" runat="server" Text="Please add a movie cover image: "></asp:Label>
@@ -87,11 +91,50 @@
                 <asp:TemplateField HeaderText="Actions">
                     <ItemTemplate>
                         <asp:Button ID="btnViewMovie" runat="server" CssClass="btn btn-success" Text="View" CommandName="ViewMovie" CommandArgument="MovieId" />
-                        <asp:Button ID="btnEditMovie" runat="server" CssClass="btn btn-primary" Text="Edit" CommandName="EditMovie" CommandArgument="MovieId"/>
-                        <asp:Button ID="btnDeleteMovie" runat="server" CssClass="btn btn-danger" Text="Delete" OnClientClick="return confirm('Are you sure you want to delete this movie?');" CommandName="DeleteMovie" CommandArgument="MovieId"/>
+                        <asp:Button ID="btnEditMovie" runat="server" CssClass="btn btn-primary" Text="Edit" CommandName="EditMovie" CommandArgument="MovieId" />
+                        <asp:Button ID="btnDeleteMovie" runat="server" CssClass="btn btn-danger" Text="Delete" OnClientClick="return confirm('Are you sure you want to delete this movie?');" CommandName="DeleteMovie" CommandArgument="MovieId" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
+        <br />
+    </asp:Panel>
+    <asp:Panel ID="pnlViewMovie" runat="server">
+        <div class="row">
+            <div class="col-sm-3">
+                <br />
+                <asp:Image ID="imgMovie" runat="server" />
+            </div>
+            <div class="col-sm-5">
+                <br />
+                <asp:Label ID="lblViewMovieName" runat="server"> <strong>Movie Name: </strong></asp:Label>
+                <asp:Label ID="lblViewMovieNameText" runat="server"></asp:Label>
+                <br />
+                <br />
+                <asp:Label ID="lblViewMovieInfo" runat="server"> <strong>Synopsis: </strong></asp:Label>
+                <asp:Label ID="lblViewMovieInfoText" runat="server"></asp:Label>
+                <br />
+                <br />
+                <asp:Label ID="lblViewMovieRuntime" runat="server"> <strong>Runtime: </strong></asp:Label>
+                <asp:Label ID="lblViewMovieRuntimeText" runat="server"></asp:Label>
+                <br />
+                <br />
+                <asp:Label ID="lblViewMovieRating" runat="server"> <strong>Rating: </strong></asp:Label>
+                <asp:Label ID="lblViewMovieRatingText" runat="server"></asp:Label>
+                <br />
+                <br />
+                <asp:Label ID="lblViewMovieReleaseDate" runat="server"> <strong>Released: </strong></asp:Label>
+                <asp:Label ID="lblViewMovieReleaseDateText" runat="server"></asp:Label>
+                <br />
+                <br />
+                <asp:Label ID="lblViewMovieScore" runat="server"><strong>Rotten Tomatoes Score: </strong></asp:Label>
+                <asp:Label ID="lblViewMovieScoreText" runat="server"></asp:Label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1">
+                <asp:Button ID="btnReturn" runat="server" Text="Go Back" CssClass="btn btn-primary" OnClick="btnReturn_Click" />
+            </div>
+        </div>
     </asp:Panel>
 </asp:Content>

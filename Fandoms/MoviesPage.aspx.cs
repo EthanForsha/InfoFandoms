@@ -18,6 +18,7 @@ namespace Fandoms
 			{
 				BindMoviesList();
 				BindFandomsDDL();
+				ViewMovies();
 			}
 		}
 
@@ -105,6 +106,11 @@ namespace Fandoms
 				int movieId = int.Parse(e.CommandArgument.ToString());
 				lblMovieId.Text = e.CommandArgument.ToString();
 				ViewMovieById(movieId);
+				pnlAddMovie.Visible = false;
+				pnlManageMoviesHeader.Visible = false;
+				pnlMovieList.Visible = false;
+				pnlViewMovies.Visible = false;
+				pnlViewMovie.Visible = true;
 			}
 			else if (e.CommandName == "EditMovie")
 			{
@@ -135,7 +141,31 @@ namespace Fandoms
 
 		private void ViewMovieById(int movieId)
 		{
-			// Implement view movie page
+			using (SqlConnection conn = new SqlConnection())
+			{
+				conn.ConnectionString = WebConfigurationManager.ConnectionStrings["FandomsConnectionString"].ConnectionString;
+
+				SqlCommand cmd = new SqlCommand();
+				cmd.CommandText = "SELECT * FROM Movies WHERE MovieId = " + movieId;
+				cmd.Connection = conn;
+				conn.Open();
+
+				cmd.ExecuteNonQuery();
+
+				SqlDataReader sdr = cmd.ExecuteReader();
+
+				if (sdr.HasRows)
+				{
+					sdr.Read();
+					imgMovie.ImageUrl = "/Content/Fandoms/" + sdr["MovieImage"].ToString();
+					lblViewMovieNameText.Text = sdr["MovieName"].ToString();
+					lblViewMovieInfoText.Text = sdr["MovieInfo"].ToString();
+					lblViewMovieRuntimeText.Text = sdr["MovieRuntime"].ToString() + " minutes";
+					lblViewMovieReleaseDateText.Text = sdr["MovieReleaseDate"].ToString();
+					lblViewMovieRatingText.Text = sdr["MovieRating"].ToString();
+					lblViewMovieScoreText.Text = sdr["MovieScore"].ToString() + "% on Rotten Tomatoes";
+				}
+			}
 		}
 
 		private void EditMovieById(int movieId)
@@ -320,20 +350,6 @@ namespace Fandoms
 			}
 		}
 
-
-
-		protected void ddlFandomsView_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			if (ddlFandomsView.SelectedIndex == 0)
-			{
-				BindMoviesList();
-			}
-			else
-			{
-				BindSelectedFandom();
-			}
-		}
-
 		protected void BindSelectedFandom()
 		{
 			using (SqlConnection conn = new SqlConnection())
@@ -506,17 +522,22 @@ namespace Fandoms
 			lblMovieRatingFeedback.Visible = false;
 			lblMovieReleaseFeedback.Visible = false;
 			lblMovieScoreFeedback.Visible = false;
-			//ddlFandomsView.Visible = true;
+			ddlFandomsView.Visible = true;
 			btnAddNewMovie.Visible = true;
 			pnlViewMovies.Visible = true;
 			pnlAddMovie.Visible = false;
 			pnlMovieList.Visible = true;
+			pnlManageMoviesHeader.Visible = true;
+			pnlViewMovie.Visible = false;
+			BindMoviesList();
 		}
 
 		private void AddMovies()
 		{
+			pnlViewMovie.Visible = false;
+			pnlManageMoviesHeader.Visible = false;
 			lblFandomNameRequired.Visible = true;
-			lblSelectFandom.Visible = true;
+			lblSelectFandom.Visible = true;	
 			lblEditMovieInFandom.Visible = false;
 			fuMovieImage.Attributes.Clear();
 			ddlFandoms.SelectedIndex = 0;
@@ -542,11 +563,40 @@ namespace Fandoms
 			pnlViewMovies.Visible = false;
 			pnlAddMovie.Visible = true;
 			pnlMovieList.Visible = true;
+			BindMoviesList();
 		}
 
 		protected void btnCancel_Click(object sender, EventArgs e)
 		{
 			ViewMovies();
+		}
+
+        protected void btnReturn_Click(object sender, EventArgs e)
+        {
+			imgMovie.ImageUrl = "";
+			lblViewMovieNameText.Text = "";
+			lblViewMovieInfoText.Text = "";
+			lblViewMovieRuntimeText.Text = "";
+			lblViewMovieReleaseDateText.Text = "";
+			lblViewMovieRatingText.Text = "";
+			lblViewMovieScoreText.Text = "";
+			pnlViewMovie.Visible = false;
+			ViewMovies();
+			BindMoviesList();
+		}
+
+        protected void btnViewMoviesInFandom_Click(object sender, EventArgs e)
+		{
+			if (ddlFandomsView.SelectedIndex == 0)
+			{
+				BindMoviesList();
+				//Response.Redirect(Request.RawUrl);
+			}
+			else
+			{
+				BindSelectedFandom();
+				//Response.Redirect(Request.RawUrl);
+			}
 		}
 	}
 }
