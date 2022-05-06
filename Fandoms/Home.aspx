@@ -54,10 +54,10 @@
             <div class="col-xs-2">
                 <img alt="MCU Poster" class="auto-style3" src="Images/MCU.png" /></div>
             <div class="col-xs-2">
-                <asp:Button ID="btnAddFandom" runat="server" Text="Add/Edit Fandom" OnClick="Button1_Click" ToolTip="Clicking this allows you to view, add, and edit the Fandoms databse!" BackColor="#61278F" BorderColor="#61278F" CssClass="btn" Font-Bold="True" Height="65px" Width="150px" />
+                <asp:Button ID="btnAddFandom" runat="server" Text="Manage Fandoms" OnClick="Button1_Click" ToolTip="Clicking this allows you to view, add, and edit the Fandoms databse!" BackColor="#61278F" BorderColor="#61278F" CssClass="btn" Font-Bold="True" Height="65px" Width="150px" ForeColor="White" />
             </div>
             <div class="col-xs-2">
-                <asp:Button ID="btnAddMovie" runat="server" Text="Add/Edit Movie" OnClick="btnAddMovie_Click" ToolTip="Click this allows you to view, add, and edit movies of a specified fandom!" BackColor="#61278F" BorderColor="#61278F" CssClass="btn" Font-Bold="True" Height="65px" Width="150px" />
+                <asp:Button ID="btnAddMovie" runat="server" Text="Manage Movies" OnClick="btnAddMovie_Click" ToolTip="Click this allows you to view, add, and edit movies of a specified fandom!" BackColor="#61278F" BorderColor="#61278F" CssClass="btn" Font-Bold="True" Height="65px" Width="150px" ForeColor="White" />
             </div>
             <div class="col-xs-2">
                 <img alt="StarWars Poster" class="auto-style4" src="Images/StarWars.jpg" />

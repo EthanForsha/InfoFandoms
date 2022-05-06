@@ -157,7 +157,7 @@ namespace Fandoms
 				if (sdr.HasRows)
 				{
 					sdr.Read();
-					imgMovie.ImageUrl = "/Content/Fandoms/" + sdr["MovieImage"].ToString();
+					imgMovie.ImageUrl = "/Content/Fandoms/Images/" + sdr["MovieImage"].ToString();
 					lblViewMovieNameText.Text = sdr["MovieName"].ToString();
 					lblViewMovieInfoText.Text = sdr["MovieInfo"].ToString();
 					lblViewMovieRuntimeText.Text = sdr["MovieRuntime"].ToString() + " minutes";
@@ -183,7 +183,7 @@ namespace Fandoms
 				if (sdr.Read())
 				{
 					ddlFandoms.SelectedIndex = 0;
-					lblEditMovieInFandom.Text = "Editing " + sdr["MovieName"].ToString() + " in " + sdr["MovieFandomName"].ToString() + " fandom.";
+					lblEditMovieInFandom.Text = "<strong>You are now editing " + sdr["MovieName"].ToString() + " in " + sdr["MovieFandomName"].ToString() + " fandom.<strong>";
 					lblEditMovieInFandom.Visible = true;
 					lblFandomName.Text = sdr["MovieFandomName"].ToString();
 					lblMovieId.Text = sdr["MovieId"].ToString();
@@ -470,7 +470,7 @@ namespace Fandoms
 						BindMoviesList();
 					}
 				}
-				else if ((!fuMovieImage.HasFile) && (ddlFandoms.SelectedIndex != 0) && (txtMovieName.Text != "") && (txtMovieInfo.Text != ""))
+				else if ((!fuMovieImage.HasFile) && (txtMovieName.Text != "") && (txtMovieInfo.Text != ""))
 				{
 					String MovieFandomName = lblFandomName.Text;
 
@@ -590,13 +590,30 @@ namespace Fandoms
 			if (ddlFandomsView.SelectedIndex == 0)
 			{
 				BindMoviesList();
-				//Response.Redirect(Request.RawUrl);
 			}
 			else
 			{
 				BindSelectedFandom();
-				//Response.Redirect(Request.RawUrl);
 			}
 		}
-	}
+
+        protected void ddlFandomsView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+			if(ddlFandomsView.SelectedIndex == 0)
+            {
+				btnReset.Visible = false;
+            }
+            else
+            {
+				btnReset.Visible = true;
+            }
+        }
+
+        protected void btnReset_Click(object sender, EventArgs e)
+        {
+			ddlFandomsView.SelectedIndex = 0;
+			BindMoviesList();
+			btnReset.Visible = false;
+        }
+    }
 }

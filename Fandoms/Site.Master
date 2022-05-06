@@ -87,6 +87,7 @@
 
             <hr />
             <footer>
+                <br />
                 <p>&copy; <%: DateTime.Now.Year %> - InfoFandoms</p>
             </footer>
         </div>
