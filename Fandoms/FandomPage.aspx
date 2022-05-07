@@ -1,8 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FandomPage.aspx.cs" Inherits="Fandoms.FandomPage" MasterPageFile="~/Site.Master" %>
   <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 	<!DOCTYPE html>
-	<h2>Fandoms</h2>
-    <asp:Label ID="lblHeader" runat="server">Here you can add your own Fandom to the list!</asp:Label>
+	<H2><strong>Fandoms</strong></H2>
+    <asp:Label ID="lblHeader" runat="server"><strong>Here you can add your own Fandom to the list!</strong></asp:Label>
 	<br>
 	<br>
     <asp:Panel ID="pnlAddFandom" runat="server" ClientIDMode="Static">   
@@ -22,7 +22,7 @@
 				<asp:Label ID="lblImage" Visible="false" ForeColor="Red" runat="server"></asp:Label>
 		</div>
 		<div class="form-group">
-				<asp:Button CssClass="btn btn-primary" ID="btnAddFandom" runat="server" Text="Add" ValidationGroup="AddFandom" OnClick="btnAddFandom_Click"/>
+				<asp:Button CssClass="btn btn-primary" ID="btnAddFandom" runat="server" Text="Add" ValidationGroup="AddFandom" OnClick="btnAddFandom_Click" BackColor="#61278F" BorderColor="#61278F"/>
 				<asp:Button ID="btnSaveFandom" runat="server" CssClass="btn btn-primary" Text="Save" Visible="False" OnClick="btnSaveFandom_Click"/>
 				<asp:Button ID="btnCancel" runat="server" CssClass="btn btn-secondary" Text="Cancel" Visible="False" OnClick="btnCancel_Click"/>
 				<asp:Label ID="lblFandomId" runat="server" Visible="False"></asp:Label>
@@ -70,7 +70,7 @@
                 <br />
                 <br />
                 <br />
-                <asp:Button ID="btnGoBack" runat="server" CssClass="btn btn-primary" Text="Go Back" OnClick="btnGoBack_Click"/>
+                <asp:Button ID="btnGoBack" runat="server" CssClass="btn btn-primary" Text="Go Back" OnClick="btnGoBack_Click" BackColor="#61278F" BorderColor="#61278F"/>
             </div>
         </div>
 	  </asp:Panel>
