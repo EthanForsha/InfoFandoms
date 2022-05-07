@@ -47,12 +47,31 @@
 		</asp:GridView>
 	</asp:Panel>
 	<asp:Panel ID="pnlViewFandomImages" runat="server" ClientIDMode="Static">
-		<asp:Label ID="lblFandomImage" runat="server" Font-Bold="True">Image: </asp:Label>
-		<br>
-		<br>
-		<asp:Image ID="imgFandom" runat="server" ImageAlign="Middle" />
-		<br>
-		<br>
-		<asp:Button ID="btnGoBack" runat="server" CssClass="btn btn-primary" Text="Go Back" OnClick="btnGoBack_Click"/>
+		 <div class="row">
+            <div class="col-sm-3">
+                <br />
+				<asp:Image ID="imgFandom" runat="server" ImageAlign="Left" width="250px" height="250px" style="object-fit: contain; padding: 5px;"/>
+			</div>
+            <div class="col-sm-5">
+                <br />
+                <br />
+                <asp:Label ID="lblViewFandomName" runat="server"> <strong>Fandom Name: </strong></asp:Label>
+                <asp:Label ID="lblViewFandomNameText" runat="server"></asp:Label>
+                <br />
+                <br />
+                <asp:Label ID="lblViewFandomInfo" runat="server"> <strong>Fandom Information: </strong></asp:Label>
+                <asp:Label ID="lblViewFandomInfoText" runat="server"></asp:Label>
+                <br />
+                <br />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1">
+                <br />
+                <br />
+                <br />
+                <asp:Button ID="btnGoBack" runat="server" CssClass="btn btn-primary" Text="Go Back" OnClick="btnGoBack_Click"/>
+            </div>
+        </div>
 	  </asp:Panel>
 </asp:Content>

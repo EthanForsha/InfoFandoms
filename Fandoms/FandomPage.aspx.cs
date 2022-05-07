@@ -91,7 +91,7 @@ namespace Fandoms
 				conn.ConnectionString = WebConfigurationManager.ConnectionStrings["FandomsConnectionString"].ConnectionString;
 
 				SqlCommand cmd = new SqlCommand();
-				cmd.CommandText = "SELECT FandomImagePath FROM Fandoms WHERE FandomId = @fandomId";
+				cmd.CommandText = "SELECT FandomName, FandomInfo, FandomImagePath FROM Fandoms WHERE FandomId = @fandomId";
 				cmd.Parameters.AddWithValue("@fandomId", fandomId);
 				cmd.Connection = conn;
 				conn.Open();
@@ -104,6 +104,8 @@ namespace Fandoms
 				{
 					sdr.Read();
 					imgFandom.ImageUrl = "/Content/Fandoms/" + sdr["FandomImagePath"].ToString();
+					lblViewFandomNameText.Text = sdr["FandomName"].ToString();
+					lblViewFandomInfoText.Text = sdr["FandomInfo"].ToString();
 				}
 
 				pnlViewFandomImages.Visible = true;

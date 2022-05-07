@@ -159,15 +159,6 @@ namespace Fandoms
 		protected global::System.Web.UI.WebControls.Panel pnlViewFandomImages;
 
 		/// <summary>
-		/// lblFandomImage control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label lblFandomImage;
-
-		/// <summary>
 		/// imgFandom control.
 		/// </summary>
 		/// <remarks>
@@ -175,6 +166,42 @@ namespace Fandoms
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.Image imgFandom;
+
+		/// <summary>
+		/// lblViewFandomName control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label lblViewFandomName;
+
+		/// <summary>
+		/// lblViewFandomNameText control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label lblViewFandomNameText;
+
+		/// <summary>
+		/// lblViewFandomInfo control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label lblViewFandomInfo;
+
+		/// <summary>
+		/// lblViewFandomInfoText control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label lblViewFandomInfoText;
 
 		/// <summary>
 		/// btnGoBack control.
